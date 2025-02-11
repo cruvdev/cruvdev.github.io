@@ -1,1 +1,109 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Aevis</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+	<style>
+		/* Reset default margins and paddings */
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		/* Prevent scrolling outside the carousel */
+		html,
+		body {
+			height: 100%;
+			overflow: hidden;
+		}
+
+		/* Carousel container takes up the full viewport */
+		.carousel-container {
+			position: relative;
+			height: 100%;
+			width: 100%;
+			overflow: hidden;
+		}
+
+		/* Carousel slides wrapper that will be translated vertically */
+		.carousel-slides {
+			height: 100%;
+			width: 100%;
+			transition: transform 0.8s ease;
+		}
+
+		/* Each slide fills the entire viewport */
+		.slide {
+			height: 100%;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		/* Ensure the image covers the slide */
+		.slide img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="carousel-container">
+		<!-- Wrapper that will slide vertically -->
+		<div class="carousel-slides">
+			<div class="slide"><img src="assets/1.png" alt="Slide 1"></div>
+			<div class="slide"><img src="assets/2.png" alt="Slide 2"></div>
+			<div class="slide"><img src="assets/3.png" alt="Slide 3"></div>
+			<div class="slide"><img src="assets/4.png" alt="Slide 4"></div>
+			<div class="slide"><img src="assets/5.png" alt="Slide 5"></div>
+			<div class="slide"><img src="assets/6.png" alt="Slide 6"></div>
+			<div class="slide"><img src="assets/7.png" alt="Slide 7"></div>
+			<div class="slide"><img src="assets/8.png" alt="Slide 8"></div>
+			<div class="slide"><img src="assets/9.png" alt="Slide 9"></div>
+			<div class="slide"><img src="assets/10.png" alt="Slide 10"></div>
+			<div class="slide"><img src="assets/11.png" alt="Slide 11"></div>
+			<div class="slide"><img src="assets/12.png" alt="Slide 12"></div>
+			<div class="slide"><img src="assets/13.png" alt="Slide 13"></div>
+		</div>
+	</div>
+
+	<script>
+		const slidesContainer = document.querySelector('.carousel-slides');
+		const slides = document.querySelectorAll('.slide');
+		const totalSlides = slides.length;
+		let currentIndex = 0;
+		let isScrolling = false;
+
+		function updateCarousel() {
+			const translateY = -currentIndex * window.innerHeight;
+			slidesContainer.style.transform = `translateY(${translateY}px)`;
+		}
+
+		window.addEventListener('wheel', (e) => {
+			if (isScrolling) return;
+
+			if (e.deltaY > 0) {
+				if (currentIndex < totalSlides - 1) currentIndex = currentIndex + 1;
+			} else {
+				if (currentIndex > 0) currentIndex = currentIndex - 1;
+			}
+
+			updateCarousel();
+			isScrolling = true;
+			setTimeout(() => {
+				isScrolling = false;
+			}, 800);
+		});
+
+		window.addEventListener('resize', updateCarousel);
+	</script>
+</body>
+
+</html>
