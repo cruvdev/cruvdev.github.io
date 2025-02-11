@@ -71,7 +71,7 @@
 </head>
 
 <body>
-	<div class="floating-logo">
+	<div class="floating-logo" id="logo">
 		<img src="assets/logo.png" alt="Aevis Logo" />
 	</div>
 	<div class="carousel-container">
@@ -102,6 +102,25 @@
 		function updateCarousel() {
 			const translateY = -currentIndex * window.innerHeight;
 			slidesContainer.style.transform = `translateY(${translateY}px)`;
+
+			const aspectRatio = window.innerWidth / window.innerHeight;
+			if (aspectRatio > 1.6) {
+				const height = window.innerHeight;
+				const width1 = height * aspectRatio;
+				const width2 = height * 1.6;
+				const diff = (width1 - width2) / 2;
+
+				const logo = document.getElementById('logo');
+				logo.style.left = `${diff + 10}px`;
+			} else if (aspectRatio < 1.6) {
+				const width = window.innerWidth;
+				const height1 = width / aspectRatio;
+				const height2 = width / 1.6;
+				const diff = (height1 - height2) / 2;
+
+				const logo = document.getElementById('logo');
+				logo.style.top = `${diff + 10}px`;
+			}
 		}
 
 		window.addEventListener('wheel', (e) => {
@@ -121,6 +140,8 @@
 		});
 
 		window.addEventListener('resize', updateCarousel);
+
+		updateCarousel();
 	</script>
 </body>
 
