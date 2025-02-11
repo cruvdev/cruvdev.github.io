@@ -5,7 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Aevis</title>
-  <link rel="icon" type="image/png" href="assets/logo.png" />
+	<link rel="icon" type="image/png" href="assets/favicon.png" />
 	<style>
 		/* Reset default margins and paddings */
 		* {
@@ -19,6 +19,22 @@
 		body {
 			height: 100%;
 			overflow: hidden;
+		}
+
+		/* Floating logo styling */
+		.floating-logo {
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			z-index: 10;
+			/* Optional: add some styling effects */
+			background: #FFFFFF00;
+		}
+
+		.floating-logo img {
+			height: 25px;
+			/* Adjust as needed */
+			width: auto;
 		}
 
 		/* Carousel container takes up the full viewport */
@@ -55,8 +71,10 @@
 </head>
 
 <body>
+	<div class="floating-logo">
+		<img src="assets/logo.png" alt="Aevis Logo" />
+	</div>
 	<div class="carousel-container">
-		<!-- Wrapper that will slide vertically -->
 		<div class="carousel-slides">
 			<div class="slide"><img src="assets/1.png" alt="Slide 1"></div>
 			<div class="slide"><img src="assets/2.png" alt="Slide 2"></div>
