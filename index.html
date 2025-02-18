@@ -143,6 +143,41 @@
 
 		updateCarousel();
 	</script>
+	<script>
+		const VERSION = "v0.0.11";
+		const APP_ID = "cfea0dc323257287";
+
+		window.AevisSettings = {
+			version: VERSION,
+			app_id: APP_ID,
+			signature: "a286a90135e7a969561689aa71aaf5d03b1628072cc98c5ffda91c613c43e464",
+			user_id: "dummy-user",
+		};
+
+		(function () {
+			var w = window, a = w.Aevis && w.Aevis.init;
+			if (typeof a === "function") {
+				a();
+			} else {
+				var d = document;
+				var f = function () {
+					var s = d.createElement('script');
+					s.type = "text/javascript";
+					s.defer = true;
+					// s.src = 'https://aevis-codenet.cruv.dev/copilot/?app_id=' + APP_ID + '&version=' + VERSION;
+					s.src = 'https://aevis-codenet.cruv.dev/copilot/?app_id=genuinbcc-tQxeSles4fc&version=' + VERSION;
+					s.onload = function () {
+						if (typeof Aevis !== "undefined") Aevis.init();
+					};
+					var x = d.getElementsByTagName("script")[0];
+					x.parentNode.insertBefore(s, x);
+				};
+				if (d.readyState === 'complete') f();
+				else if (w.attachEvent) w.attachEvent('onload', f);
+				else w.addEventListener('load', f, false);
+			}
+		})();
+	</script>
 </body>
 
 </html>
