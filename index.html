@@ -144,38 +144,15 @@
 		updateCarousel();
 	</script>
 	<script>
-		const VERSION = "v0.0.11";
 		const APP_ID = "56da9f7c852a8dd1";
-
 		window.AevisSettings = {
-			version: VERSION,
 			app_id: APP_ID,
 			user_id: "anonymous",
 			signature: "54323d0f9b3f28aa6b8923f1aa0beaa8c4519271a1af5891975ac48f23f3df35",
 		};
-
-		(function () {
-			var w = window, a = w.Aevis && w.Aevis.init;
-			if (typeof a === "function") {
-				a();
-			} else {
-				var d = document;
-				var f = function () {
-					var s = d.createElement('script');
-					s.type = "text/javascript";
-					s.defer = true;
-					s.src = 'https://aevis-codenet.cruv.dev/copilot/?app_id=' + APP_ID + '&version=' + VERSION;
-					s.onload = function () {
-						if (typeof Aevis !== "undefined") Aevis.init();
-					};
-					var x = d.getElementsByTagName("script")[0];
-					x.parentNode.insertBefore(s, x);
-				};
-				if (d.readyState === 'complete') f();
-				else if (w.attachEvent) w.attachEvent('onload', f);
-				else w.addEventListener('load', f, false);
-			}
-		})();
+	</script>
+	<script>
+		!function(){var w=window,t=w.Aevis&&w.Aevis.init;if("function"==typeof t)t();else{var n=document,f=function(){var e=n.createElement("script");e.type="text/javascript",e.defer=!0,e.src="https://aevis-codenet.cruv.dev/copilot/?app_id="+APP_ID,e.onload=function(){"undefined"!=typeof Aevis&&Aevis.init()};var t=n.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)};"complete"===n.readyState?f():w.attachEvent?w.attachEvent("onload",f):w.addEventListener("load",f,!1)}}();
 	</script>
 </body>
 
