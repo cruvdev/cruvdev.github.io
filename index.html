@@ -26,15 +26,36 @@
 			position: fixed;
 			top: 10px;
 			left: 10px;
-			z-index: 10;
-			/* Optional: add some styling effects */
-			background: #FFFFFF00;
+			z-index: 1;
 		}
 
 		.floating-logo img {
 			height: 25px;
 			/* Adjust as needed */
 			width: auto;
+		}
+
+		/* Download button styling */
+		.download-btn {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 1;
+			padding: 6px 10px;
+			border-radius: 50px;
+			overflow: hidden;
+			border: 1px solid #FF6D50;
+			cursor: pointer;
+
+			color: #FF6D50;
+			font-size: 12px;
+			font-family: "Manrope", sans-serif;
+			font-weight: 550;
+			text-decoration: none;
+		}
+
+		.download-btn:hover {
+			background-color: #FF6D5010;
 		}
 
 		/* Carousel container takes up the full viewport */
@@ -74,6 +95,7 @@
 	<div class="floating-logo" id="logo">
 		<img src="assets/logo.png" alt="Aevis Logo" />
 	</div>
+	<a href="assets/aevis.pdf" download class="download-btn">Download PDF</a>
 	<div class="carousel-container">
 		<div class="carousel-slides">
 			<div class="slide"><img src="assets/1.png" alt="Slide 1"></div>
